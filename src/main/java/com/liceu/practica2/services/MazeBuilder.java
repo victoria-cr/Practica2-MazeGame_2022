@@ -1,4 +1,4 @@
 package com.liceu.practica2.services;
 
-public class MazeBuilder {
+public interface MazeBuilder {
 }

@@ -1,4 +1,4 @@
 package com.liceu.practica2.model;
 
-public class Item {
+public interface Item {
 }
