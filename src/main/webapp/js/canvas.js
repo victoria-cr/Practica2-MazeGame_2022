@@ -101,7 +101,7 @@ function drawKey() {
 }
 
 //MONEDA
-imageCoin.src = "./imagenes/coin.png";
+imageCoin.src = "./images/coin.png";
 console.log(imageCoin);
 imageCoin.onload = drawCoin;
 
@@ -110,7 +110,7 @@ function drawCoin() {
 }
 
 //PERSONAJE
-imageCharacter.src = "./imagenes/stitch.png";
+imageCharacter.src = "./images/stitch.png";
 console.log(imageCharacter);
 imageCharacter.onload = drawCharacter;
 
@@ -119,7 +119,7 @@ function drawCharacter() {
 }
 
 //FLECHAS
-imageArrows.src = "./imagenes/arrows.png";
+imageArrows.src = "./images/arrows.png";
 console.log(imageArrows);
 imageArrows.onload = drawArrows;
 
