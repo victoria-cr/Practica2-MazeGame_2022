@@ -9,6 +9,12 @@
         h1{
             text-align: center;
         }
+        form {
+            text-align: center;
+        }
+        select {
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -16,6 +22,7 @@
 
     <form method="post" action"/start">
         <label>Mapa:</label>
+        <br>
         <select id="mapa" name="mapa">
             <option value="blanc"> </option>
             <option value="mapa1">Mapa 1</option>
