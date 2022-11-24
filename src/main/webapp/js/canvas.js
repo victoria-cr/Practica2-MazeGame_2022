@@ -19,16 +19,16 @@ var widthSquare = 20;
 var heightSquare = 20;
 
 //VARIABLE LLAVE
-var imagenLlave = new Image();
+var imageKey = new Image();
 
 //VARIABLE MONEDA
-var imagenMoneda = new Image();
+var imageCoin = new Image();
 
 //VARIABLE PERSONAJE
-var imagenPersonaje = new Image();
+var imageCharacter = new Image();
 
 //VARIABLE FLECHAS
-var imagenFlechas= new Image();
+var imageArrows= new Image();
 
 canvas.addEventListener ("mousedown", function (event) {
     const boundingRect = canvas.getBoundingClientRect();
@@ -37,7 +37,7 @@ canvas.addEventListener ("mousedown", function (event) {
     const y = Math.trunc(event.clientY - boundingRect.top);
     console.log("X: " + x + ", Y: " + y);
     //Llave
-    if ((100 + grosor <= x && x <= 100 + grosor + 100 + grosor + 45) && (100 + grosor <= y && y <= 100 + grosor + 45)) {
+    if ((100 + width - grosor - 45 <= x && x <= 100 + width - grosor) && (100 + height - grosor - 45 <= y && y <= 100 + height - grosor)) {
         console.log("Key");
     }
     //Moneda
@@ -46,19 +46,19 @@ canvas.addEventListener ("mousedown", function (event) {
     }
     //Flecha arriba
     if ((530 <= x && x <= 575) && (340 <= y && y <= 390)) {
-        console.log("Arriba");
+        console.log("Up");
     }
     //Flecha abajo
     if ((530 <= x && x <= 575) && (392 <= y && y <= 440)) {
-        console.log("Abajo");
+        console.log("Down");
     }
     //Flecha izquierda
     if ((480 <= x && x <= 523) && (392 <= y && y <= 440)) {
-        console.log("Izquierda");
+        console.log("Left");
     }
     //Flecha derecha
     if ((575 <= x && x <= 620) && (392 <= y && y <= 440)) {
-        console.log("Derecha");
+        console.log("Right");
     }
 });
 
@@ -92,37 +92,37 @@ function colorDoors(door) {
 }
 
 //LLAVE
-imagenLlave.src = "../imagenes/llave.png";
-console.log(imagenLlave);
-imagenLlave.onload = pintarLlave;
+imageKey.src = "./imagenes/key.png";
+console.log(imageKey);
+imageKey.onload = drawKey;
 
-function pintarLlave() {
-    ctx.drawImage(imagenLlave, 100 + grosor, 100 + grosor, 45, 45);
+function drawKey() {
+    ctx.drawImage(imageKey, 100 + width - grosor - 45, 100 + height - grosor - 45, 45, 45);
 }
 
 //MONEDA
-imagenMoneda.src = "../imagenes/moneda.png";
-console.log(imagenMoneda);
-imagenMoneda.onload = pintarMoneda;
+imageCoin.src = "./imagenes/coin.png";
+console.log(imageCoin);
+imageCoin.onload = drawCoin;
 
-function pintarMoneda() {
-    ctx.drawImage(imagenMoneda, 100 + grosor, 100 + height - grosor - 60, 60, 60);
+function drawCoin() {
+    ctx.drawImage(imageCoin, 100 + grosor, 100 + height - grosor - 60, 60, 60);
 }
 
 //PERSONAJE
-imagenPersonaje.src = "../imagenes/stitch.png";
-console.log(imagenPersonaje);
-imagenPersonaje.onload = pintarPersonaje;
+imageCharacter.src = "./imagenes/stitch.png";
+console.log(imageCharacter);
+imageCharacter.onload = drawCharacter;
 
-function pintarPersonaje() {
-    ctx.drawImage(imagenPersonaje, 100 + width/2 - grosor*2, 100 + height/2 - grosor*2, 90, 90);
+function drawCharacter() {
+    ctx.drawImage(imageCharacter, 100 + width/2 - grosor*2, 100 + height/2 - grosor*2, 90, 90);
 }
 
 //FLECHAS
-imagenFlechas.src = "../imagenes/flechas.png";
-console.log(imagenFlechas);
-imagenFlechas.onload = pintarFlechas;
+imageArrows.src = "./imagenes/arrows.png";
+console.log(imageArrows);
+imageArrows.onload = drawArrows;
 
-function pintarFlechas() {
-    ctx.drawImage(imagenFlechas, 480, 340, 140, 100);
+function drawArrows() {
+    ctx.drawImage(imageArrows, 480, 340, 140, 100);
 }
