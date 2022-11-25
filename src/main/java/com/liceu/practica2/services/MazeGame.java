@@ -28,27 +28,21 @@ public class MazeGame {
 //        }
     }
 
-/*    private static void go(Player player, Maze.Directions dir) {
+   public void go(Player player, Maze.Directions dir) {
         Room room = player.getCurrentRoom();
         MapSite ms = room.getSide(dir);
         ms.enter(player);
     }
 
-    private static Maze.Directions askUser() {
-        System.out.println("Cap a on vols anar? (N,S,E,W)");
-        while(true) {
-            String line = scanner.nextLine();
-            if (line.length() > 0) {
-                char c = line.toUpperCase().charAt(0);
-                switch(c) {
-                    case 'N': return Maze.Directions.NORTH;
-                    case 'S': return Maze.Directions.SOUTH;
-                    case 'E': return Maze.Directions.EAST;
-                    case 'W': return Maze.Directions.WEST;
-                }
-            }
+    public Maze.Directions askUser(String c) {
+        switch(c) {
+            case "N": return Maze.Directions.NORTH;
+            case "S": return Maze.Directions.SOUTH;
+            case "E": return Maze.Directions.EAST;
+            case "W": return Maze.Directions.WEST;
         }
-    }*/
+        return null;
+    }
 
     private static Maze createMaze() {
         MazeBuilder mazeBuilder = new StandardMazeBuilder();
@@ -78,7 +72,7 @@ public class MazeGame {
         return mazeBuilder.getMaze();
     }
 
-    public static JSONObject json(Player player) {
+    public JSONObject json(Player player) {
         Room room = player.getCurrentRoom();
         JSONObject jsonObject = new JSONObject();
 

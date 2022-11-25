@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet("/start")
@@ -25,12 +26,19 @@ public class Start extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         Player player = mazeGame.main();
 
-        JSONObject jsonObject = MazeGame.json(player);
+        System.out.println("Player Hecho: " + player);
 
+        JSONObject jsonObject = mazeGame.json(player);
         System.out.println(jsonObject.toJSONString());
         req.setAttribute("json", jsonObject.toJSONString());
+
+        System.out.println(player.getCurrentRoom().getNumber());
+
+        session.setAttribute("player", player);
+        System.out.println("Player: " + session.getAttribute("player"));
 
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
