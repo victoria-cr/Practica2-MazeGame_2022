@@ -8,42 +8,42 @@ ctx.fillText("Room: " + root.room, 5, 15);
 ctx.fillText("Keys: " + root.keys, 5, 30);
 ctx.fillText("Coins: " + root.coins, 5, 45);
 
-//VARIABLES CUADRADO
+//SQUARE VARIABLES
 var width = 300;
 var height = 300;
 var grosor = 20;
 
-//VARIABLES PUERTAS
+//DOORS VARIABLES
 var widthSquare = 20;
 var heightSquare = 20;
 
-//VARIABLE LLAVE
+//KEY VARIABLE
 var imageKey = new Image();
 
-//VARIABLE MONEDA
+//COIN VARIABLE
 var imageCoin = new Image();
 
-//VARIABLE PERSONAJE
+//CHARACTER VARIABLE
 var imageCharacter = new Image();
 
-//VARIABLE FLECHAS
+//ARROWS VARIABLE
 var imageArrows= new Image();
 
 canvas.addEventListener ("mousedown", function (event) {
     const boundingRect = canvas.getBoundingClientRect();
-    // Marcas del canvas
+    //CANVAS
     const x = Math.trunc(event.clientX - boundingRect.left);
     const y = Math.trunc(event.clientY - boundingRect.top);
     console.log("X: " + x + ", Y: " + y);
-    //Llave
+    //KEY
     if ((100 + width - grosor - 45 <= x && x <= 100 + width - grosor) && (100 + height - grosor - 45 <= y && y <= 100 + height - grosor)) {
         window.location.assign("http://127.0.0.1:8080/getKey");
     }
-    //Moneda
+    //COIN
     if ((100 + grosor <= x && x <= 100 + grosor + 60) && (100 + height - grosor - 60 <= y && y <= 100 + height - grosor)) {
         window.location.assign("http://127.0.0.1:8080/getCoin");
     }
-    //Flecha arriba
+    //ARROW UP
     if ((530 <= x && x <= 575) && (340 <= y && y <= 390)) {
         if (root.N == "closed")
         ctx.fillText("The door is closed", 150, 135);
@@ -51,7 +51,7 @@ canvas.addEventListener ("mousedown", function (event) {
         ctx.fillText("This is a wall", 150, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=N");
     }
-    //Flecha abajo
+    //ARROW DOWN
     if ((530 <= x && x <= 575) && (392 <= y && y <= 440)) {
         if (root.S == "closed")
         ctx.fillText("The door is closed", 150, 135);
@@ -59,7 +59,7 @@ canvas.addEventListener ("mousedown", function (event) {
         ctx.fillText("This is a wall", 150, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=S");
     }
-    //Flecha izquierda
+    //ARROW LEFT
     if ((480 <= x && x <= 523) && (392 <= y && y <= 440)) {
         if (root.W == "closed")
         ctx.fillText("The door is closed", 150, 135);
@@ -67,7 +67,7 @@ canvas.addEventListener ("mousedown", function (event) {
         ctx.fillText("This is a wall", 150, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=W");
     }
-    //Flecha derecha
+    //ARROW RIGHT
     if ((575 <= x && x <= 620) && (392 <= y && y <= 440)) {
         if (root.E == "closed")
         ctx.fillText("The door is closed", 150, 135);
@@ -83,7 +83,7 @@ ctx.rect(100, 100, width, height);
 ctx.lineWidth = grosor;
 ctx.stroke();
 
-//PUERTAS
+//DOORS
 colorDoors(root.N);
 ctx.fillRect(100 + width/2 - widthSquare, 100 - heightSquare/2, widthSquare*2, heightSquare);
 
@@ -106,7 +106,7 @@ function colorDoors(door) {
   }
 }
 
-//LLAVE
+//KEY
 imageKey.src = "./images/key.png";
 console.log(imageKey);
 if (root.tieneLlave == true) {
@@ -117,7 +117,7 @@ function drawKey() {
     ctx.drawImage(imageKey, 100 + width - grosor - 45, 100 + height - grosor - 45, 45, 45);
 }
 
-//MONEDA
+//COIN
 imageCoin.src = "./images/coin.png";
 console.log(imageCoin);
 if (root.tieneMoneda == true) {
@@ -128,7 +128,7 @@ function drawCoin() {
     ctx.drawImage(imageCoin, 100 + grosor, 100 + height - grosor - 60, 60, 60);
 }
 
-//PERSONAJE
+//CHARACTER
 imageCharacter.src = "./images/stitch.png";
 console.log(imageCharacter);
 imageCharacter.onload = drawCharacter;
@@ -137,7 +137,7 @@ function drawCharacter() {
     ctx.drawImage(imageCharacter, 100 + width/2 - grosor*2, 100 + height/2 - grosor*2, 90, 90);
 }
 
-//FLECHAS
+//ARROWS
 imageArrows.src = "./images/arrows.png";
 console.log(imageArrows);
 imageArrows.onload = drawArrows;
