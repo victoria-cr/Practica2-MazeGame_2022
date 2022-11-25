@@ -28,7 +28,7 @@ public class MazeGame {
 //        }
     }
 
-    private static void go(Player player, Maze.Directions dir) {
+/*    private static void go(Player player, Maze.Directions dir) {
         Room room = player.getCurrentRoom();
         MapSite ms = room.getSide(dir);
         ms.enter(player);
@@ -48,7 +48,7 @@ public class MazeGame {
                 }
             }
         }
-    }
+    }*/
 
     private static Maze createMaze() {
         MazeBuilder mazeBuilder = new StandardMazeBuilder();

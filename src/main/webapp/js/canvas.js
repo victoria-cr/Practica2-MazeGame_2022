@@ -37,27 +37,43 @@ canvas.addEventListener ("mousedown", function (event) {
     console.log("X: " + x + ", Y: " + y);
     //Llave
     if ((100 + width - grosor - 45 <= x && x <= 100 + width - grosor) && (100 + height - grosor - 45 <= y && y <= 100 + height - grosor)) {
-        console.log("Key");
+        window.location.assign("http://127.0.0.1:8080/getKey");
     }
     //Moneda
     if ((100 + grosor <= x && x <= 100 + grosor + 60) && (100 + height - grosor - 60 <= y && y <= 100 + height - grosor)) {
-        console.log("Coin");
+        window.location.assign("http://127.0.0.1:8080/getCoin");
     }
     //Flecha arriba
     if ((530 <= x && x <= 575) && (340 <= y && y <= 390)) {
-        console.log("Up");
+        if (root.N == "closed")
+        ctx.fillText("The door is closed", 150, 135);
+        else if (root.N == "wall")
+        ctx.fillText("This is a wall", 150, 135);
+        else window.location.assign("http://127.0.0.1:8080/nav?dir=N");
     }
     //Flecha abajo
     if ((530 <= x && x <= 575) && (392 <= y && y <= 440)) {
-        console.log("Down");
+        if (root.S == "closed")
+        ctx.fillText("The door is closed", 150, 135);
+        else if (root.S == "wall")
+        ctx.fillText("This is a wall", 150, 135);
+        else window.location.assign("http://127.0.0.1:8080/nav?dir=S");
     }
     //Flecha izquierda
     if ((480 <= x && x <= 523) && (392 <= y && y <= 440)) {
-        console.log("Left");
+        if (root.W == "closed")
+        ctx.fillText("The door is closed", 150, 135);
+        else if (root.W == "wall")
+        ctx.fillText("This is a wall", 150, 135);
+        else window.location.assign("http://127.0.0.1:8080/nav?dir=W");
     }
     //Flecha derecha
     if ((575 <= x && x <= 620) && (392 <= y && y <= 440)) {
-        console.log("Right");
+        if (root.E == "closed")
+        ctx.fillText("The door is closed", 150, 135);
+        else if (root.E == "wall")
+        ctx.fillText("This is a wall", 150, 135);
+        else window.location.assign("http://127.0.0.1:8080/nav?dir=E");
     }
 });
 
