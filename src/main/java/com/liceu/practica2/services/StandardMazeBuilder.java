@@ -54,6 +54,13 @@ public class StandardMazeBuilder implements MazeBuilder {
     @Override
     public void putKeyInRoom(int nroom, Key key) {
         maze.getRoom(nroom).setItem(key);
+        maze.getRoom(nroom).setHayLlave(true);
+    }
+
+    @Override
+    public void putCoinInRoom(int nroom, Coin coin) {
+        maze.getRoom(nroom).setItem(coin);
+        maze.getRoom(nroom).setHayMoneda(true);
     }
 
     @Override

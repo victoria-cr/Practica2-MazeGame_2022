@@ -6,6 +6,7 @@ import java.util.List;
 public class Player {
     private Room currentRoom;
     private List<Item> itemList = new ArrayList<>();
+
     public void setCurrentRoom(Room currentRoom) {
         System.out.println("Ets a l'habitació: " + currentRoom.getNumber());
         this.currentRoom = currentRoom;

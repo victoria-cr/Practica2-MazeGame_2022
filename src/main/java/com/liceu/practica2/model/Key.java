@@ -21,6 +21,10 @@ public class Key implements Item {
                 .forEach(Door::open);
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
         return "Key{" +

@@ -28,7 +28,7 @@
             <option value="mapa1">Mapa 1</option>
             <option value="mapa2">Mapa 2</option>
         </select>
-        <button type="button">Start</button>
+        <button type="submit">Start</button>
     </form>
 </body>
 </html>
