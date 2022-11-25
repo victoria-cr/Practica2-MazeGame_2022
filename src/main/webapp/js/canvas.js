@@ -46,33 +46,33 @@ canvas.addEventListener ("mousedown", function (event) {
     //ARROW UP
     if ((530 <= x && x <= 575) && (340 <= y && y <= 390)) {
         if (root.N == "closed")
-        ctx.fillText("The door is closed", 150, 135);
+        ctx.fillText("The door is closed", 120, 135);
         else if (root.N == "wall")
-        ctx.fillText("This is a wall", 150, 135);
+        ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=N");
     }
     //ARROW DOWN
     if ((530 <= x && x <= 575) && (392 <= y && y <= 440)) {
         if (root.S == "closed")
-        ctx.fillText("The door is closed", 150, 135);
+        ctx.fillText("The door is closed", 120, 135);
         else if (root.S == "wall")
-        ctx.fillText("This is a wall", 150, 135);
+        ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=S");
     }
     //ARROW LEFT
     if ((480 <= x && x <= 523) && (392 <= y && y <= 440)) {
         if (root.W == "closed")
-        ctx.fillText("The door is closed", 150, 135);
+        ctx.fillText("The door is closed", 120, 135);
         else if (root.W == "wall")
-        ctx.fillText("This is a wall", 150, 135);
+        ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=W");
     }
     //ARROW RIGHT
     if ((575 <= x && x <= 620) && (392 <= y && y <= 440)) {
         if (root.E == "closed")
-        ctx.fillText("The door is closed", 150, 135);
+        ctx.fillText("The door is closed", 120, 135);
         else if (root.E == "wall")
-        ctx.fillText("This is a wall", 150, 135);
+        ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=E");
     }
 });
