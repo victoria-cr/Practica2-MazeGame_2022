@@ -23,6 +23,10 @@ public class Room {
         return number;
     }
 
+    public Item getItem() {
+        return item;
+    }
+
     public boolean isTarget() {
         return target;
     }
@@ -57,13 +61,5 @@ public class Room {
 
     public void setSide(Maze.Directions dir, MapSite ms) {
         this.sides.put(dir, ms);
-    }
-
-    public void enter(Player player) {
-        if (this.item != null) {
-            System.out.println("Has obtingut un ítem: " + this.item.toString());
-            player.addItem(this.item);
-            this.item = null;
-        }
     }
 }

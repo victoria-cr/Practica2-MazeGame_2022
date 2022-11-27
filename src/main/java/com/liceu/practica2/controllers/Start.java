@@ -31,11 +31,19 @@ public class Start extends HttpServlet {
 
         System.out.println("Player Hecho: " + player);
 
+
+
+        System.out.println(player.getCurrentRoom().getNumber());
+
+        //KEY
+        mazeGame.cogerLlave(player);
+
+        //COIN
+        mazeGame.cogerMoneda(player);
+
         JSONObject jsonObject = mazeGame.json(player);
         System.out.println(jsonObject.toJSONString());
         req.setAttribute("json", jsonObject.toJSONString());
-
-        System.out.println(player.getCurrentRoom().getNumber());
 
         session.setAttribute("player", player);
         System.out.println("Player: " + session.getAttribute("player"));

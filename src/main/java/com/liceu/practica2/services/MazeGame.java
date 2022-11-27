@@ -65,7 +65,7 @@ public class MazeGame {
         mazeBuilder.putKeyInRoom(6, k2);
         mazeBuilder.putKeyInRoom(2, k1);
 
-        mazeBuilder.putCoinInRoom(4, coin1);
+        mazeBuilder.putCoinInRoom(1, coin1);
 
         mazeBuilder.setTarget(3);
 
@@ -121,5 +121,21 @@ public class MazeGame {
             }
         }
         return llaves;
+    }
+
+    public void cogerLlave (Player player) {
+        if (player.getCurrentRoom().getItem() instanceof Key) {
+            player.addItem(player.getCurrentRoom().getItem());
+            player.getCurrentRoom().setHayLlave(false);
+            System.out.println("Has cogido llave");
+        }
+    }
+
+    public void cogerMoneda (Player player) {
+        if (player.getCurrentRoom().getItem() instanceof Coin) {
+            player.addItem(player.getCurrentRoom().getItem());
+            player.getCurrentRoom().setHayMoneda(false);
+            System.out.println("Has cogido moneda");
+        }
     }
 }
