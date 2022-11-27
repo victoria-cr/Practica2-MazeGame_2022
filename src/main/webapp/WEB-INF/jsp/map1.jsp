@@ -8,6 +8,8 @@
 </head>
 <body>
     <canvas id="canvas" width="650" height="450" style="border:1px solid black;background-color: white;"></canvas>
+    <br><br>
+    <a href="http://localhost:8080/start">Reset</a>
     <script id="json" type="application/json">
         ${json}
     </script>
