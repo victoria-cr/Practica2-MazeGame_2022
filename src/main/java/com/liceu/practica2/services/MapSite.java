@@ -4,4 +4,6 @@ import com.liceu.practica2.model.Player;
 
 public interface MapSite {
     void enter(Player player);
+
+    void abrirPuerta(Player player);
 }

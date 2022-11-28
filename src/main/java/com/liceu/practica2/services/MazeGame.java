@@ -138,4 +138,8 @@ public class MazeGame {
             System.out.println("Has cogido moneda");
         }
     }
+
+    public void openDoor(Player player, Maze.Directions direction) {
+        player.getCurrentRoom().getSide(direction).abrirPuerta(player);
+    }
 }

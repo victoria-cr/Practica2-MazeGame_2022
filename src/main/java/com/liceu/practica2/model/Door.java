@@ -23,19 +23,21 @@ public class Door implements MapSite {
 
     @Override
     public void enter(Player player) {
+        if (this.open) {
+            Room r = getOtherRoom(player.getCurrentRoom());
+            player.setCurrentRoom(r);
+        } else {
+            System.out.println("No pots obrir la porta, encara");
+        }
+    }
+
+    public void abrirPuerta(Player player) {
         if (!this.open) {
             List<Item> items = player.getItemList();
             items.stream()
                     .filter(i -> i instanceof Key)
                     .map(i -> (Key) i)
                     .forEach(k -> k.open(this));
-        }
-
-        if (this.open) {
-            Room r = getOtherRoom(player.getCurrentRoom());
-            player.setCurrentRoom(r);
-        } else {
-            System.out.println("No pots obrir la porta, encara");
         }
     }
 
