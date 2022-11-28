@@ -21,17 +21,12 @@ public class Nav extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
-        System.out.println("Player Nav: " + player);
         mazeGame.json((Player) session.getAttribute("player"));
-        System.out.println(mazeGame.json((Player) session.getAttribute("player")));
-        System.out.println("Player Session: " + player);
         String direction = req.getParameter("dir");
 
         mazeGame.go(player, mazeGame.askUser(direction));
-        System.out.println("A: " + player.getCurrentRoom().getNumber());
 
         JSONObject jsonObject = mazeGame.json(player);
-        System.out.println(jsonObject.toJSONString());
         req.setAttribute("json", jsonObject.toJSONString());
 
         RequestDispatcher dispatcher =
