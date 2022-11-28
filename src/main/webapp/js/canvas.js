@@ -51,6 +51,10 @@ canvas.addEventListener ("mousedown", function (event) {
         ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=N");
     }
+    if ((100 + width/2 - widthSquare <= x && x <= 100 + width/2 - widthSquare + widthSquare*2)
+        && (100 - heightSquare/2 <= y && y <= 100 - heightSquare/2 + heightSquare)) {
+        window.location.assign("http://127.0.0.1:8080/open?dir=N");
+    }
     //ARROW DOWN
     if ((530 <= x && x <= 575) && (392 <= y && y <= 440)) {
         if (root.S == "closed")
@@ -58,6 +62,10 @@ canvas.addEventListener ("mousedown", function (event) {
         else if (root.S == "wall")
         ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=S");
+    }
+    if ((100 + width/2 - widthSquare <= x && x <= 100 + width/2 - widthSquare + widthSquare*2)
+        && (100 - heightSquare/2 + height <= y && y <= 100 - heightSquare/2 + height + heightSquare)) {
+        window.location.assign("http://127.0.0.1:8080/open?dir=S");
     }
     //ARROW LEFT
     if ((480 <= x && x <= 523) && (392 <= y && y <= 440)) {
@@ -67,6 +75,10 @@ canvas.addEventListener ("mousedown", function (event) {
         ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=W");
     }
+    if ((100 - widthSquare/2 <= x && x <= 100 - widthSquare/2 + widthSquare)
+        && (100 + height/2 - heightSquare <= y && y <= 100 + height/2 - heightSquare + heightSquare*2)) {
+        window.location.assign("http://127.0.0.1:8080/open?dir=W");
+    }
     //ARROW RIGHT
     if ((575 <= x && x <= 620) && (392 <= y && y <= 440)) {
         if (root.E == "closed")
@@ -74,6 +86,10 @@ canvas.addEventListener ("mousedown", function (event) {
         else if (root.E == "wall")
         ctx.fillText("This is a wall", 120, 135);
         else window.location.assign("http://127.0.0.1:8080/nav?dir=E");
+    }
+    if ((100 + width - widthSquare/2 <= x && x <= 100 + width - widthSquare/2 + widthSquare)
+        && (100 + height/2 - heightSquare <= y && y <= 100 + height/2 - heightSquare + heightSquare*2)) {
+        window.location.assign("http://127.0.0.1:8080/open?dir=E");
     }
 });
 

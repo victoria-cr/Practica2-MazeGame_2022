@@ -19,6 +19,7 @@ public class Start extends HttpServlet {
     MazeGame mazeGame = new MazeGame();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession session = req.getSession();
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/start.jsp");
         dispatcher.forward(req, resp);
@@ -31,15 +32,7 @@ public class Start extends HttpServlet {
 
         System.out.println("Player Hecho: " + player);
 
-
-
         System.out.println(player.getCurrentRoom().getNumber());
-
-        //KEY
-        mazeGame.cogerLlave(player);
-
-        //COIN
-        mazeGame.cogerMoneda(player);
 
         JSONObject jsonObject = mazeGame.json(player);
         System.out.println(jsonObject.toJSONString());

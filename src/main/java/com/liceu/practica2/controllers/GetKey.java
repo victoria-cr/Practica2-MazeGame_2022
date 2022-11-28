@@ -2,6 +2,7 @@ package com.liceu.practica2.controllers;
 
 import com.liceu.practica2.model.Player;
 import com.liceu.practica2.services.MazeGame;
+import org.json.simple.JSONObject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -21,6 +22,10 @@ public class GetKey extends HttpServlet {
         Player player = (Player) session.getAttribute("player");
 
         mazeGame.cogerLlave(player);
+
+        JSONObject jsonObject = mazeGame.json(player);
+        System.out.println(jsonObject.toJSONString());
+        req.setAttribute("json", jsonObject.toJSONString());
 
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
