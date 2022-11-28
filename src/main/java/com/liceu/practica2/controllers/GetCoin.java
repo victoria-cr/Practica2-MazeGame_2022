@@ -22,7 +22,9 @@ public class GetCoin extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
 
-        mazeGame.cogerMoneda(player);
+        if ( player.getCurrentRoom().isHayMoneda()) {
+            mazeGame.cogerMoneda(player);
+        }
 
         JSONObject jsonObject = mazeGame.json(player);
         System.out.println(jsonObject.toJSONString());
