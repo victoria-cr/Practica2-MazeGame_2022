@@ -21,13 +21,13 @@ public class Reset extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         Player player = mazeGame.main();
+        session.setAttribute("player", player);
 
         System.out.println(player.getCurrentRoom().getNumber());
 
-        JSONObject jsonObject = mazeGame.json(player);
+        JSONObject jsonObject = mazeGame.json((Player) session.getAttribute("player"));
         req.setAttribute("json", jsonObject.toJSONString());
 
-        session.setAttribute("player", player);
 
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");

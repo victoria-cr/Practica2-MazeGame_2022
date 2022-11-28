@@ -50,8 +50,8 @@ public class MazeGame {
                 .range(1,7)
                 .forEach(mazeBuilder::buildRoom);
 
-        Key k1 = new Key("Level1 Key");
-        Key k2 = new Key("Level2 Key");
+        Key k1 = new Key("Level1 Key",1);
+        Key k2 = new Key("Level2 Key",2);
 
         Coin coin1 = new Coin();
 
@@ -125,9 +125,9 @@ public class MazeGame {
 
     public void cogerLlave (Player player) {
         if (player.getCurrentRoom().getItem() instanceof Key) {
+            if (contarMonedas(player) >= ((Key) player.getCurrentRoom().getItem()).getValor()) 
             player.addItem(player.getCurrentRoom().getItem());
             player.getCurrentRoom().setHayLlave(false);
-            System.out.println("Has cogido llave");
         }
     }
 
@@ -135,7 +135,6 @@ public class MazeGame {
         if (player.getCurrentRoom().getItem() instanceof Coin) {
             player.addItem(player.getCurrentRoom().getItem());
             player.getCurrentRoom().setHayMoneda(false);
-            System.out.println("Has cogido moneda");
         }
     }
 

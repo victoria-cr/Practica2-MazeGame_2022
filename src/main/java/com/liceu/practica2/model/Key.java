@@ -6,8 +6,11 @@ import java.util.List;
 public class Key implements Item {
     private List<Door> doors = new ArrayList<>();
     private String name;
-    public Key(String name) {
+    private int valor;
+
+    public Key(String name, int valor) {
         this.name = name;
+        this.valor = valor;
     }
 
     public void addDoor(Door d) {
@@ -23,6 +26,10 @@ public class Key implements Item {
 
     public String getName() {
         return name;
+    }
+
+    public int getValor() {
+        return valor;
     }
 
     @Override

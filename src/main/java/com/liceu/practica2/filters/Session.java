@@ -9,13 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-@WebFilter(urlPatterns = {"/start", "/nav", "/getKey", "/getCoin", "/open", "/reset", "/endForm"})
+@WebFilter(urlPatterns = {"/nav", "/getKey", "/getCoin", "/open", "/reset", "/endForm"})
 public class Session extends HttpFilter {
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         HttpSession session = req.getSession();
         if (session.getAttribute("player") == null) {
-            res.sendRedirect("http://127.0.0.1:8080/start");
+            res.setStatus(401);
+            res.sendRedirect("/start");
+            return;
         }
         chain.doFilter(req, res);
     }
