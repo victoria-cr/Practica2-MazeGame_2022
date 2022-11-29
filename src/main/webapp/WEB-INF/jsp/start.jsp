@@ -25,7 +25,8 @@
         <br>
         <select id="mapa" name="mapa">
             <option value="blanc"> </option>
-            <option value="mapa1">Mapa 1</option>
+            <option value="map1">Map 1</option>
+            <option value="map2">Map 2</option>
         </select>
         <button type="submit">Start</button>
     </form>

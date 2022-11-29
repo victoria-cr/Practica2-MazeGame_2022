@@ -14,7 +14,7 @@ public class MazeGame {
     private static Scanner scanner = new Scanner(System.in);
 
     public Player main() {
-        this.maze = createMaze();
+        this.maze = createMaze1();
         this.player = new Player();
         play(maze, player);
         return player;
@@ -44,7 +44,7 @@ public class MazeGame {
         return null;
     }
 
-    private static Maze createMaze() {
+    private static Maze createMaze1() {
         MazeBuilder mazeBuilder = new StandardMazeBuilder();
         IntStream
                 .range(1,7)
@@ -54,6 +54,8 @@ public class MazeGame {
         Key k2 = new Key("Level2 Key",2);
 
         Coin coin1 = new Coin();
+        Coin coin2 = new Coin();
+        Coin coin3 = new Coin();
 
         mazeBuilder.buildDoor(1,2, Maze.Directions.NORTH);
         mazeBuilder.buildDoor(1,4, Maze.Directions.SOUTH);
@@ -66,6 +68,40 @@ public class MazeGame {
         mazeBuilder.putKeyInRoom(2, k1);
 
         mazeBuilder.putCoinInRoom(1, coin1);
+        mazeBuilder.putCoinInRoom(3, coin2);
+        mazeBuilder.putCoinInRoom(4, coin3);
+
+        mazeBuilder.setTarget(3);
+
+        return mazeBuilder.getMaze();
+    }
+
+    private static Maze createMaze2() {
+        MazeBuilder mazeBuilder = new StandardMazeBuilder();
+        IntStream
+                .range(1,7)
+                .forEach(mazeBuilder::buildRoom);
+
+        Key k1 = new Key("Level1 Key",1);
+        Key k2 = new Key("Level2 Key",2);
+
+        Coin coin1 = new Coin();
+        Coin coin2 = new Coin();
+        Coin coin3 = new Coin();
+
+        mazeBuilder.buildDoor(1,4, Maze.Directions.WEST);
+        mazeBuilder.buildDoor(2,3, Maze.Directions.EAST);
+        mazeBuilder.buildDoor(1,5, Maze.Directions.SOUTH);
+
+        mazeBuilder.buildDoor(1,2, Maze.Directions.NORTH, k1);
+        mazeBuilder.buildDoor(5,6, Maze.Directions.EAST, k2);
+
+        mazeBuilder.putKeyInRoom(4, k1);
+        mazeBuilder.putKeyInRoom(1, k2);
+
+        mazeBuilder.putCoinInRoom(5, coin1);
+        mazeBuilder.putCoinInRoom(2, coin2);
+        mazeBuilder.putCoinInRoom(3, coin3);
 
         mazeBuilder.setTarget(3);
 
@@ -125,9 +161,23 @@ public class MazeGame {
 
     public void cogerLlave (Player player) {
         if (player.getCurrentRoom().getItem() instanceof Key) {
-            if (contarMonedas(player) >= ((Key) player.getCurrentRoom().getItem()).getValor()) 
-            player.addItem(player.getCurrentRoom().getItem());
-            player.getCurrentRoom().setHayLlave(false);
+            if (contarMonedas(player) >= ((Key) player.getCurrentRoom().getItem()).getValor()) {
+                quitarMoneda(player);
+                player.addItem(player.getCurrentRoom().getItem());
+                player.getCurrentRoom().setHayLlave(false);
+            }
+        }
+    }
+
+    public void quitarMoneda (Player player) {
+        int costeLlave = ((Key) player.getCurrentRoom().getItem()).getValor();
+        for (int i = 0; i < player.getItemList().size(); i++) {
+            if (player.getItemList().get(i) instanceof Coin) {
+                if (costeLlave > 0) {
+                    costeLlave--;
+                    player.getItemList().remove(i);
+                }
+            }
         }
     }
 
