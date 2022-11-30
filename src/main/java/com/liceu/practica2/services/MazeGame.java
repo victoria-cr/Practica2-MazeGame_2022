@@ -114,10 +114,10 @@ public class MazeGame {
 
         jsonObject.put("room", room.getNumber());
 
-        jsonObject.put("N", comprovarPuerta(room, Maze.Directions.NORTH));
-        jsonObject.put("S", comprovarPuerta(room, Maze.Directions.SOUTH));
-        jsonObject.put("E", comprovarPuerta(room, Maze.Directions.EAST));
-        jsonObject.put("W", comprovarPuerta(room, Maze.Directions.WEST));
+        jsonObject.put("N", comprobarPuerta(room, Maze.Directions.NORTH));
+        jsonObject.put("S", comprobarPuerta(room, Maze.Directions.SOUTH));
+        jsonObject.put("E", comprobarPuerta(room, Maze.Directions.EAST));
+        jsonObject.put("W", comprobarPuerta(room, Maze.Directions.WEST));
 
         jsonObject.put("coins", contarMonedas(player));
         jsonObject.put("keys", contarLlaves(player));
@@ -128,7 +128,7 @@ public class MazeGame {
         return jsonObject;
     }
 
-    private static String comprovarPuerta(Room room, Maze.Directions direction) {
+    private static String comprobarPuerta(Room room, Maze.Directions direction) {
         if (room.getSide(direction) instanceof Door) {
             if (((Door) room.getSide(direction)).isOpen()) {
                 return "open";
