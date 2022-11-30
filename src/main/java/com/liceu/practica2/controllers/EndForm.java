@@ -13,7 +13,7 @@ public class EndForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/endForm.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/end.jsp");
         dispatcher.forward(req, resp);
     }
 }
