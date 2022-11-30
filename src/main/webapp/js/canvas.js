@@ -115,10 +115,10 @@ ctx.fillRect(100 - widthSquare/2, 100 + height/2 - heightSquare, widthSquare, he
 function colorDoors(door) {
   if (door == "open") {
     ctx.fillStyle = "white";
-  }
-
-  if (door == "closed") {
+  } else if (door == "closed") {
     ctx.fillStyle = "red";
+  } else {
+    ctx.fillStyle = "black";
   }
 }
 

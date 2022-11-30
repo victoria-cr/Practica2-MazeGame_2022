@@ -68,7 +68,7 @@ public class MazeGame {
         mazeBuilder.putKeyInRoom(2, k1);
 
         mazeBuilder.putCoinInRoom(1, coin1);
-        mazeBuilder.putCoinInRoom(3, coin2);
+        mazeBuilder.putCoinInRoom(5, coin2);
         mazeBuilder.putCoinInRoom(4, coin3);
 
         mazeBuilder.setTarget(3);
