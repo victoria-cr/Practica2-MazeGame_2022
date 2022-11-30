@@ -14,7 +14,7 @@ public class MazeGame {
     private static Scanner scanner = new Scanner(System.in);
 
     public Player main() {
-        this.maze = createMaze1();
+        this.maze = createMaze2();
         this.player = new Player();
         play(maze, player);
         return player;
@@ -94,7 +94,7 @@ public class MazeGame {
         mazeBuilder.buildDoor(1,5, Maze.Directions.SOUTH);
 
         mazeBuilder.buildDoor(1,2, Maze.Directions.NORTH, k1);
-        mazeBuilder.buildDoor(5,6, Maze.Directions.EAST, k2);
+        mazeBuilder.buildDoor(5,6, Maze.Directions.SOUTH, k2);
 
         mazeBuilder.putKeyInRoom(4, k1);
         mazeBuilder.putKeyInRoom(1, k2);
