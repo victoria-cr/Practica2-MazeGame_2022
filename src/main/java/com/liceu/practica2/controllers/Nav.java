@@ -28,8 +28,12 @@ public class Nav extends HttpServlet {
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());
 
-        RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
-        dispatcher.forward(req, resp);
+        if (player.getCurrentRoom().isTarget()) {
+            resp.sendRedirect("/endForm");
+        } else {
+            RequestDispatcher dispatcher =
+                    req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
+            dispatcher.forward(req, resp);
+        }
     }
 }

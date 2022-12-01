@@ -11,6 +11,13 @@ import java.io.IOException;
 @WebServlet("/endForm")
 public class EndForm extends HttpServlet {
     @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher dispatcher =
+                req.getRequestDispatcher("/WEB-INF/jsp/endForm.jsp");
+        dispatcher.forward(req, resp);
+    }
+
+    @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/endForm.jsp");
