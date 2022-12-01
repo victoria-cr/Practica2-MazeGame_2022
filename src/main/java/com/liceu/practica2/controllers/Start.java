@@ -28,7 +28,9 @@ public class Start extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Player player = mazeGame.main();
+        Player player = mazeGame.main(req.getParameter("maps"));
+
+        System.out.println(req.getParameter("maps"));
 
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());

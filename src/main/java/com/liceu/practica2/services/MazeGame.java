@@ -13,8 +13,12 @@ public class MazeGame {
     private Player player;
     private static Scanner scanner = new Scanner(System.in);
 
-    public Player main() {
-        this.maze = createMaze2();
+    public Player main(String map) {
+        if (map.equals("map1")) {
+            this.maze = createMaze1();
+        } else {
+            this.maze = createMaze2();
+        }
         this.player = new Player();
         play(maze, player);
         return player;
@@ -103,7 +107,7 @@ public class MazeGame {
         mazeBuilder.putCoinInRoom(2, coin2);
         mazeBuilder.putCoinInRoom(3, coin3);
 
-        mazeBuilder.setTarget(3);
+        mazeBuilder.setTarget(6);
 
         return mazeBuilder.getMaze();
     }

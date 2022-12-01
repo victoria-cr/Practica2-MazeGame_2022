@@ -23,10 +23,10 @@
     <form method="post" action"/start">
         <label>Mapa:</label>
         <br>
-        <select id="mapa" name="mapa">
+        <select id="mapa" name="maps">
             <option value="blanc"> </option>
-            <option value="map1">Map 1</option>
-            <option value="map2">Map 2</option>
+            <option value="map1" name="map1">Map 1</option>
+            <option value="map2" name="map2">Map 2</option>
         </select>
         <button type="submit">Start</button>
     </form>
