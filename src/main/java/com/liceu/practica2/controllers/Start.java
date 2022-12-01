@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 @WebServlet("/start")
 public class Start extends HttpServlet {
@@ -30,7 +31,11 @@ public class Start extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = mazeGame.main(req.getParameter("maps"));
 
-        System.out.println(req.getParameter("maps"));
+        long temps = System.currentTimeMillis();
+        session.setAttribute("temps", temps);
+
+        Timestamp timestamp = new Timestamp(temps);
+        System.out.println(timestamp);
 
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());

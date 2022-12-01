@@ -9,6 +9,8 @@
 <body>
     <h1>Maze Game</h1>
 
+    <p>Temps: ${temp}</p>
+
     <form method="post" action"/end">
         <label>Name:</label>
         <br>
