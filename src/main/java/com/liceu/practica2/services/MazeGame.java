@@ -180,6 +180,7 @@ public class MazeGame {
                 if (costeLlave > 0) {
                     costeLlave--;
                     player.getItemList().remove(i);
+                    i--;
                 }
             }
         }
