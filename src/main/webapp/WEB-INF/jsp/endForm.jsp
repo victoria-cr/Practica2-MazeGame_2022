@@ -5,15 +5,32 @@
 <html>
 <head>
     <title>Maze Game</title>
+    <style>
+        html {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        h1{
+            text-align: center;
+            font-size: 26pt;
+        }
+        p {
+            font-size: 16pt;
+            text-align: center;
+        }
+        form {
+            font-size: 16pt;
+            text-align: center;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>Maze Game</h1>
+    <h1>End game</h1>
 
-    <p>Temps: ${temp}</p>
+    <p>Time: ${temp}</p>
 
     <form method="post" action"/end">
         <label>Name:</label>
-        <br>
         <input id="name" type="text"></input>
         <button type="submit">Save</button>
     </form>

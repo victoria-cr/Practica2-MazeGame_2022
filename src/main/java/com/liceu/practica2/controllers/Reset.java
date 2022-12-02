@@ -29,7 +29,7 @@ public class Reset extends HttpServlet {
         req.setAttribute("json", jsonObject.toJSONString());
 
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/maps.jsp");
         dispatcher.forward(req, resp);
     }
 }

@@ -6,11 +6,16 @@
 <head>
     <title>Maze Game</title>
     <style>
+        html {
+            font-family: 'Josefin Sans', sans-serif;
+        }
         h1{
             text-align: center;
+            font-size: 26pt;
         }
         form {
             text-align: center;
+            font-size: 16pt;
         }
         select {
             margin-top: 10px;

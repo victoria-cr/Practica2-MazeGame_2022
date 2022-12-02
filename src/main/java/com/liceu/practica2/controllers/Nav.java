@@ -32,7 +32,7 @@ public class Nav extends HttpServlet {
             resp.sendRedirect("/endForm");
         } else {
             RequestDispatcher dispatcher =
-                    req.getRequestDispatcher("/WEB-INF/jsp/map1.jsp");
+                    req.getRequestDispatcher("/WEB-INF/jsp/maps.jsp");
             dispatcher.forward(req, resp);
         }
     }
