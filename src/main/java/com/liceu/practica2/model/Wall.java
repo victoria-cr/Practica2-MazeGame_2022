@@ -9,7 +9,7 @@ public class Wall implements MapSite {
     }
 
     @Override
-    public void abrirPuerta(Player player) {
+    public void openDoor(Player player) {
 
     }
 }

@@ -42,7 +42,7 @@ public class StandardMazeBuilder implements MazeBuilder {
             case WEST: return Maze.Directions.EAST;
             case EAST: return Maze.Directions.WEST;
         }
-        throw new RuntimeException("Direcció no reconeguda");
+        throw new RuntimeException("Direcció no reconeguda.");
     }
 
     @Override
@@ -54,13 +54,13 @@ public class StandardMazeBuilder implements MazeBuilder {
     @Override
     public void putKeyInRoom(int nroom, Key key) {
         maze.getRoom(nroom).setItem(key);
-        maze.getRoom(nroom).setHayLlave(true);
+        maze.getRoom(nroom).setHaveKey(true);
     }
 
     @Override
     public void putCoinInRoom(int nroom, Coin coin) {
         maze.getRoom(nroom).setItem(coin);
-        maze.getRoom(nroom).setHayMoneda(true);
+        maze.getRoom(nroom).setHaveCoin(true);
     }
 
     @Override

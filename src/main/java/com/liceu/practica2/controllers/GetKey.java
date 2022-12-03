@@ -21,8 +21,8 @@ public class GetKey extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
 
-        if ( player.getCurrentRoom().isHayLlave()) {
-            mazeGame.cogerLlave(player);
+        if ( player.getCurrentRoom().isHaveKey()) {
+            mazeGame.takeKey(player);
         }
 
         JSONObject jsonObject = mazeGame.json(player);

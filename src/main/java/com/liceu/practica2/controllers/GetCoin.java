@@ -22,8 +22,8 @@ public class GetCoin extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
 
-        if ( player.getCurrentRoom().isHayMoneda()) {
-            mazeGame.cogerMoneda(player);
+        if ( player.getCurrentRoom().isHaveCoin()) {
+            mazeGame.takeCoin(player);
         }
 
         JSONObject jsonObject = mazeGame.json(player);

@@ -8,8 +8,11 @@ public class Player {
     private List<Item> itemList = new ArrayList<>();
 
     public void setCurrentRoom(Room currentRoom) {
-        System.out.println("Ets a l'habitació: " + currentRoom.getNumber());
         this.currentRoom = currentRoom;
+    }
+
+    public Room getCurrentRoom() {
+        return this.currentRoom;
     }
 
     public void addItem(Item it) {
@@ -18,9 +21,5 @@ public class Player {
 
     public List<Item> getItemList() {
         return this.itemList;
-    }
-
-    public Room getCurrentRoom() {
-        return this.currentRoom;
     }
 }

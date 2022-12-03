@@ -27,11 +27,11 @@ public class Door implements MapSite {
             Room r = getOtherRoom(player.getCurrentRoom());
             player.setCurrentRoom(r);
         } else {
-            System.out.println("No pots obrir la porta, encara");
+            System.out.println("Encara no pots obrir la porta.");
         }
     }
 
-    public void abrirPuerta(Player player) {
+    public void openDoor(Player player) {
         if (!this.open) {
             List<Item> items = player.getItemList();
             items.stream()
