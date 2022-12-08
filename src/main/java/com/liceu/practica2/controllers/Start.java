@@ -31,10 +31,10 @@ public class Start extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = mazeGame.main(req.getParameter("maps"));
 
-        long temps = System.currentTimeMillis();
-        session.setAttribute("temps", temps);
+        long time = System.currentTimeMillis();
+        session.setAttribute("time", time);
 
-        Timestamp timestamp = new Timestamp(temps);
+        Timestamp timestamp = new Timestamp(time);
         System.out.println(timestamp);
 
         JSONObject jsonObject = mazeGame.json(player);
