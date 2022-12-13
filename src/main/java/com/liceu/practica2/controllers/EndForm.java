@@ -31,7 +31,7 @@ public class EndForm extends HttpServlet {
         String[] timeArray;
         timeArray = timeInString.split(" ");
         String timeGame = timeArray[1];
-        req.setAttribute("temp", timeGame);
+        req.setAttribute("time", timeGame);
 
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());
