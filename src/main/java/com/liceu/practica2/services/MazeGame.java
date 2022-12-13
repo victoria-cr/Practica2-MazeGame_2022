@@ -148,13 +148,13 @@ public class MazeGame {
     }
 
     private static List<String> countKeys(Player player) {
-        List<String> llaves = new ArrayList<>();
+        List<String> keys = new ArrayList<>();
         for (int i = 0; i < player.getItemList().size(); i++) {
             if (player.getItemList().get(i) instanceof Key) {
-                llaves.add(((Key) player.getItemList().get(i)).getName());
+                keys.add(((Key) player.getItemList().get(i)).getName());
             }
         }
-        return llaves;
+        return keys;
     }
 
     public void takeKey(Player player) {
