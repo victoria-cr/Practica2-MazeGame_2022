@@ -28,10 +28,10 @@ public class EndForm extends HttpServlet {
 
         Timestamp timestamp = new Timestamp(time);
         String timeInString = String.valueOf(timestamp);
-        String[] t;
-        t = timeInString.split(" ");
-        String x = t[1];
-        req.setAttribute("temp", x);
+        String[] timeArray;
+        timeArray = timeInString.split(" ");
+        String timeGame = timeArray[1];
+        req.setAttribute("temp", timeGame);
 
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());
