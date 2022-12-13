@@ -22,12 +22,11 @@ public class GetCoin extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
 
-        if ( player.getCurrentRoom().isHaveCoin()) {
+        if (player.getCurrentRoom().isHaveCoin()) {
             mazeGame.takeCoin(player);
         }
 
         JSONObject jsonObject = mazeGame.json(player);
-        System.out.println(jsonObject.toJSONString());
         req.setAttribute("json", jsonObject.toJSONString());
 
         RequestDispatcher dispatcher =
