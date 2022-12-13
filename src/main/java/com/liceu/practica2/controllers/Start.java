@@ -20,7 +20,6 @@ public class Start extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
         RequestDispatcher dispatcher =
                 req.getRequestDispatcher("/WEB-INF/jsp/start.jsp");
         dispatcher.forward(req, resp);
@@ -29,13 +28,10 @@ public class Start extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        Player player = mazeGame.main(req.getParameter("maps"));
+        Player player = mazeGame.main(req.getParameter("map"));
 
         long time = System.currentTimeMillis();
         session.setAttribute("time", time);
-
-        Timestamp timestamp = new Timestamp(time);
-        System.out.println(timestamp);
 
         JSONObject jsonObject = mazeGame.json(player);
         req.setAttribute("json", jsonObject.toJSONString());

@@ -23,15 +23,15 @@ public class EndForm extends HttpServlet {
         HttpSession session = req.getSession();
         Player player = (Player) session.getAttribute("player");
 
-        long temps = System.currentTimeMillis();
-        temps = temps - (long) session.getAttribute("temps");
+        long time = System.currentTimeMillis();
+        time = time - (long) session.getAttribute("time");
 
-        Timestamp timestamp = new Timestamp(temps);
+        Timestamp timestamp = new Timestamp(time);
         System.out.println(timestamp);
 
-        String time = String.valueOf(timestamp);
+        String timeInString = String.valueOf(timestamp);
         String[] t;
-        t = time.split(" ");
+        t = timeInString.split(" ");
         String x = t[1];
         req.setAttribute("temp", x);
 
