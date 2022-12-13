@@ -11,15 +11,15 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-    public Room getCurrentRoom() {
-        return this.currentRoom;
-    }
-
-    public void addItem(Item it) {
-        this.itemList.add(it);
+    public void addItem(Item item) {
+        this.itemList.add(item);
     }
 
     public List<Item> getItemList() {
         return this.itemList;
+    }
+
+    public Room getCurrentRoom() {
+        return this.currentRoom;
     }
 }

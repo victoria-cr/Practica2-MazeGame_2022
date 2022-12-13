@@ -41,8 +41,8 @@ public class Room {
         return haveKey;
     }
 
-    public void setHaveKey(boolean hayLlave) {
-        this.haveKey = hayLlave;
+    public void setHaveKey(boolean haveKey) {
+        this.haveKey = haveKey;
     }
 
     public boolean isHaveCoin() {
