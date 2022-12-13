@@ -27,8 +27,6 @@ public class EndForm extends HttpServlet {
         time = time - (long) session.getAttribute("time");
 
         Timestamp timestamp = new Timestamp(time);
-        System.out.println(timestamp);
-
         String timeInString = String.valueOf(timestamp);
         String[] t;
         t = timeInString.split(" ");
@@ -48,7 +46,7 @@ public class EndForm extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RequestDispatcher dispatcher =
-                req.getRequestDispatcher("/WEB-INF/jsp/endForm.jsp");
+                req.getRequestDispatcher("/WEB-INF/jsp/winners.jsp");
         dispatcher.forward(req, resp);
     }
 }
