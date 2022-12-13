@@ -42,7 +42,7 @@ public class StandardMazeBuilder implements MazeBuilder {
             case WEST: return Maze.Directions.EAST;
             case EAST: return Maze.Directions.WEST;
         }
-        throw new RuntimeException("Direcció no reconeguda.");
+        throw new RuntimeException("Direcció no reconeguda");
     }
 
     @Override
