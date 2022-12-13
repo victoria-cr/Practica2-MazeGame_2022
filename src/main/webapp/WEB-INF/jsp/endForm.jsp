@@ -27,7 +27,7 @@
 <body>
     <h1>End game</h1>
 
-    <p>Time: ${temp}</p>
+    <p>Time: ${time}</p>
 
     <form method="post" action"/end">
         <label>Name:</label>

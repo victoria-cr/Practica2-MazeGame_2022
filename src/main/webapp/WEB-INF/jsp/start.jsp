@@ -28,7 +28,7 @@
     <form method="post" action"/start">
         <label>Mapa:</label>
         <br>
-        <select id="mapa" name="maps">
+        <select id="map" name="map">
             <option value="blanc"> </option>
             <option value="map1" name="map1">Map 1</option>
             <option value="map2" name="map2">Map 2</option>
