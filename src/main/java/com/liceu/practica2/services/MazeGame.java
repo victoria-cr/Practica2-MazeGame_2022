@@ -14,7 +14,7 @@ public class MazeGame {
     public Player main(String map) {
         if (map.equals("map1")) {
             this.maze = createMaze1();
-        } else if (map.equals("2")) {
+        } else if (map.equals("map2")) {
             this.maze = createMaze2();
         }
         this.player = new Player();
@@ -26,10 +26,10 @@ public class MazeGame {
         player.setCurrentRoom(maze.getRoom(1));
     }
 
-   public void go(Player player, Maze.Directions dir) {
+    public void go(Player player, Maze.Directions dir) {
         Room room = player.getCurrentRoom();
-        MapSite mapSite = room.getSide(dir);
-        mapSite.enter(player);
+        MapSite ms = room.getSide(dir);
+        ms.enter(player);
     }
 
     public Maze.Directions askUser(String dir) {
@@ -59,11 +59,11 @@ public class MazeGame {
         mazeBuilder.buildDoor(1,4, Maze.Directions.SOUTH);
         mazeBuilder.buildDoor(1,5, Maze.Directions.EAST);
 
-        mazeBuilder.buildDoor(5,6, Maze.Directions.EAST, k1);
         mazeBuilder.buildDoor(1,3, Maze.Directions.WEST, k2);
+        mazeBuilder.buildDoor(5,6, Maze.Directions.EAST, k1);
 
-        mazeBuilder.putKeyInRoom(2, k1);
         mazeBuilder.putKeyInRoom(6, k2);
+        mazeBuilder.putKeyInRoom(2, k1);
 
         mazeBuilder.putCoinInRoom(1, coin1);
         mazeBuilder.putCoinInRoom(5, coin2);
@@ -80,8 +80,8 @@ public class MazeGame {
                 .range(1,7)
                 .forEach(mazeBuilder::buildRoom);
 
-        Key k1 = new Key("Level1 Key",1);
-        Key k2 = new Key("Level2 Key",2);
+        Key k1 = new Key("Key1",1);
+        Key k2 = new Key("Key2",2);
 
         Coin coin1 = new Coin();
         Coin coin2 = new Coin();
@@ -107,21 +107,21 @@ public class MazeGame {
     }
 
     public JSONObject json(Player player) {
-        Room currentRoom = player.getCurrentRoom();
+        Room room = player.getCurrentRoom();
         JSONObject jsonObject = new JSONObject();
 
-        jsonObject.put("currentRoom", currentRoom.getNumber());
+        jsonObject.put("room", room.getNumber());
 
-        jsonObject.put("N", checkDoor(currentRoom, Maze.Directions.NORTH));
-        jsonObject.put("S", checkDoor(currentRoom, Maze.Directions.SOUTH));
-        jsonObject.put("E", checkDoor(currentRoom, Maze.Directions.EAST));
-        jsonObject.put("W", checkDoor(currentRoom, Maze.Directions.WEST));
+        jsonObject.put("N", checkDoor(room, Maze.Directions.NORTH));
+        jsonObject.put("S", checkDoor(room, Maze.Directions.SOUTH));
+        jsonObject.put("E", checkDoor(room, Maze.Directions.EAST));
+        jsonObject.put("W", checkDoor(room, Maze.Directions.WEST));
 
-        jsonObject.put("coins", countCoin(player));
-        jsonObject.put("keys", countKey(player));
+        jsonObject.put("coins", countCoins(player));
+        jsonObject.put("keys", countKeys(player));
 
-        jsonObject.put("haveKey", currentRoom.isHaveKey());
-        jsonObject.put("haveCoin", currentRoom.isHaveCoin());
+        jsonObject.put("tieneLlave", room.isHaveKey());
+        jsonObject.put("tieneMoneda", room.isHaveCoin());
 
         return jsonObject;
     }
@@ -137,7 +137,7 @@ public class MazeGame {
         return "wall";
     }
 
-    private static int countCoin(Player player) {
+    private static int countCoins(Player player) {
         int count = 0;
         for (int i = 0; i < player.getItemList().size(); i++) {
             if (player.getItemList().get(i) instanceof Coin) {
@@ -147,19 +147,19 @@ public class MazeGame {
         return count;
     }
 
-    private static List<String> countKey(Player player) {
-        List<String> keysList = new ArrayList<>();
+    private static List<String> countKeys(Player player) {
+        List<String> llaves = new ArrayList<>();
         for (int i = 0; i < player.getItemList().size(); i++) {
             if (player.getItemList().get(i) instanceof Key) {
-                keysList.add(((Key) player.getItemList().get(i)).getName());
+                llaves.add(((Key) player.getItemList().get(i)).getName());
             }
         }
-        return keysList;
+        return llaves;
     }
 
     public void takeKey(Player player) {
         if (player.getCurrentRoom().getItem() instanceof Key) {
-            if (countCoin(player) >= ((Key) player.getCurrentRoom().getItem()).getValor()) {
+            if (countCoins(player) >= ((Key) player.getCurrentRoom().getItem()).getValor()) {
                 removeCoin(player);
                 player.addItem(player.getCurrentRoom().getItem());
                 player.getCurrentRoom().setHaveKey(false);
