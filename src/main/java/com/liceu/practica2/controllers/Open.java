@@ -25,7 +25,6 @@ public class Open extends HttpServlet {
         mazeGame.json((Player) session.getAttribute("player"));
 
         Maze.Directions direction = mazeGame.askUser(req.getParameter("dir"));
-
         mazeGame.openDoor(player, direction);
 
         JSONObject jsonObject = mazeGame.json(player);
