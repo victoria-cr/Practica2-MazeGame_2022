@@ -16,6 +16,7 @@ import java.io.IOException;
 @WebServlet("/getKey")
 public class GetKey extends HttpServlet {
     MazeGame mazeGame = new MazeGame();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -26,7 +27,6 @@ public class GetKey extends HttpServlet {
         }
 
         JSONObject jsonObject = mazeGame.json(player);
-        System.out.println(jsonObject.toJSONString());
         req.setAttribute("json", jsonObject.toJSONString());
 
         RequestDispatcher dispatcher =
